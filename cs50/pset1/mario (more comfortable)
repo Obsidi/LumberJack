@@ -1,0 +1,31 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+int n;
+    do
+    {
+        n = get_int("Give me a number between 0 and 24: ");
+    }
+    while (n < 0 || n >23);
+    {
+        for (int height = 0; height < n; height++)
+        {
+            for (int space = n - height; space > 1; space--)
+            {
+                printf(" ");
+            }
+            for (int hash = 0; hash < height +2; hash++)
+            {
+                printf("#");
+            }
+        printf("  ");
+        for (int hash = 0; hash < height + 2 ; hash ++)
+        {
+            printf("#");
+        }
+        printf("\n");
+        }
+    }
+}
