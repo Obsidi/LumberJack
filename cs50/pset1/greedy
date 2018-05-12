@@ -1,0 +1,38 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+float d;
+int coin = 0;
+
+do
+{
+    d = get_float("Change(0.1 to 5 maximum): \n");
+}
+while ( d <= 0 || d > 5);
+
+int cent = d * 100;
+
+    while ( cent > 25 )
+    {
+        cent = cent - 25;
+        coin = coin + 1;
+    }
+    while ( cent > 10 )
+    {
+        cent = cent - 10;
+        coin = coin + 1;
+    }
+    while ( cent > 5 )
+    {
+        cent = cent - 5;
+        coin = coin + 1;
+    }
+    while ( cent >= 1 )
+    {
+        cent = cent -1;
+        coin = coin + 1;
+    }
+    printf("coins: %i\n", coin);
+}
