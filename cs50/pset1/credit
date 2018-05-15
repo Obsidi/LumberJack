@@ -1,0 +1,73 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+long long int cc, c, z, x;
+int sum, a, b, count;
+count = 0;
+
+do
+{
+    printf("Your cc_number: ");
+    cc = get_long_long();
+}
+while ( cc < 0);
+c = cc;
+z = cc;
+while (c != 0)
+{
+    c /= 10;
+    count ++;
+}
+for (x = z, a = 0, b = 0; x > 0 ;x /= 100)
+{
+    a += x % 10;
+    b += ((x / 10)%10)*2;
+}
+sum = a + b;
+if ( sum < 200)
+{
+    if ( count == 15)
+    {
+        for(int i = count - 2; i > 0; i--)
+        {
+            cc /= 10;
+        }
+        if ( cc == 34 || cc == 37)
+        {
+            printf("Amex: \n");
+        }
+    }
+    else if ( count == 16)
+    {
+        for(int i = 14; i > 0; i--)
+        {
+            cc /= 10;
+        }
+        if ( cc > 50 && cc < 56)
+        {
+            printf("Master Card: \n");
+        }
+    }
+    else if ( count == 13 || count == 16)
+    {
+        for(int i = count - 1; i > 0; i--)
+        {
+            cc /= 10;
+        }
+        if ( cc == 4)
+        {
+            printf("visa: \n");
+        }
+    }
+    else
+    {
+        printf("INVALID: \n");
+    }
+}
+else
+{
+    printf("INVALID: \n");
+}
+}
